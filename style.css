@@ -242,7 +242,7 @@
 
         .venue {
             background: var(--maroon);
-            color: #f6e2b8;
+            color: #000000;
             border: 2px solid var(--gold);
             border-radius: 6px;
             padding: 14px;
