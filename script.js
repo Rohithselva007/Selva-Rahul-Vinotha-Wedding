@@ -11,8 +11,8 @@
         }
         tick(); setInterval(tick, 1000);
 
-/* ---- WhatsApp RSVP ---- */
-var WA_NUMBER = '917358853013'; // country code 91 + mobile number (change here to use the other number)
+
+var WA_NUMBER = '917358853013';
 var rsvpName = document.getElementById('gn');
 function waLink(yes) {
     var ta = document.body.classList.contains('ta');
