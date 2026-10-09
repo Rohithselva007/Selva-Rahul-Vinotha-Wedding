@@ -242,7 +242,7 @@
 
         .venue {
             background: var(--maroon);
-            color: #6e1423;
+            color: #f6e2b8;
             border: 2px solid var(--gold);
             border-radius: 6px;
             padding: 14px;
@@ -336,3 +336,52 @@
             display: block;
             filter: drop-shadow(0 8px 14px rgba(0, 0, 0, .25))
         }
+
+/* WhatsApp RSVP */
+.rsvp {
+    border: 1px solid var(--gold);
+    border-radius: 14px;
+    padding: 18px 14px;
+    margin: 22px 0 0;
+    background: var(--bg2)
+}
+
+.rsvp input {
+    width: 100%;
+    max-width: 280px;
+    margin: 12px auto 4px;
+    display: block;
+    padding: 10px 14px;
+    border: 1px solid var(--gold);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 16px;
+    text-align: center
+}
+
+.rsvp-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 8px
+}
+
+a.btn.wa {
+    margin-top: 6px;
+    padding: 10px 18px;
+    font-size: 13px
+}
+
+a.btn.wa.yes {
+    background: #1f9d55;
+    color: #fff
+}
+
+a.btn.wa.no {
+    background: transparent;
+    color: var(--maroon);
+    border: 1px solid var(--maroon)
+}
