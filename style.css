@@ -16,9 +16,14 @@
     --w: min(480px, 92vw, calc((100dvh - 150px) / 1.5));
 }
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
-html, body { height: 100%; }
+html,
+body {
+    height: 100%;
+}
 
 body {
     margin: 0;
@@ -30,11 +35,17 @@ body {
     -webkit-tap-highlight-color: transparent;
     --fs: 4.6cqw;
 }
-body.ta { font-family: 'Noto Serif Tamil', 'Cormorant Garamond', serif; --fs: 3.9cqw; }
+
+body.ta {
+    font-family: 'Noto Serif Tamil', 'Cormorant Garamond', serif;
+    --fs: 3.9cqw;
+}
 
 /* ---------- Language switching ---------- */
 body:not(.ta) .ta-only,
-body.ta .en-only { display: none !important; }
+body.ta .en-only {
+    display: none !important;
+}
 
 .tog {
     position: fixed;
@@ -49,7 +60,12 @@ body.ta .en-only { display: none !important; }
     font: 600 13px Cinzel, 'Noto Serif Tamil', serif;
     cursor: pointer;
 }
-button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-lt); outline-offset: 2px; }
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--gold-lt);
+    outline-offset: 2px;
+}
 
 /* ---------- Stage ---------- */
 .stage {
@@ -72,9 +88,12 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-lt); outli
     transition: transform 1s cubic-bezier(.45, .05, .25, 1);
     flex: none;
 }
+
 /* on wide screens, slide the spine to the centre once the book is open */
 @media (min-width: 1040px) {
-    .book-wrap.open { transform: translateX(calc(var(--w) / 2)); }
+    .book-wrap.open {
+        transform: translateX(calc(var(--w) / 2));
+    }
 }
 
 .book {
@@ -95,8 +114,15 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-lt); outli
     transition: transform 1s cubic-bezier(.45, .05, .25, 1);
     will-change: transform;
 }
-.leaf.flipped { transform: rotateY(-180deg); }
-.book.no-anim .leaf, .book.no-anim ~ * { transition: none !important; }
+
+.leaf.flipped {
+    transform: rotateY(-180deg);
+}
+
+.book.no-anim .leaf,
+.book.no-anim~* {
+    transition: none !important;
+}
 
 .face {
     position: absolute;
@@ -110,7 +136,11 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-lt); outli
     line-height: 1.35;
     text-align: center;
 }
-.face.back { transform: rotateY(180deg); border-radius: 12px 3px 3px 12px; }
+
+.face.back {
+    transform: rotateY(180deg);
+    border-radius: 12px 3px 3px 12px;
+}
 
 /* ---------- Paper pages ---------- */
 .paper {
@@ -118,7 +148,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-lt); outli
         linear-gradient(90deg, rgba(80, 40, 20, .22), rgba(80, 40, 20, 0) 9%),
         radial-gradient(ellipse at 50% 40%, #fffdf6, #fbf1dc);
 }
-.paper::before, .paper::after {
+
+.paper::before,
+.paper::after {
     content: "";
     position: absolute;
     width: 38cqw;
@@ -130,8 +162,17 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-lt); outli
     pointer-events: none;
     z-index: 0;
 }
-.paper::before { left: 0; top: 0; }
-.paper::after { right: 0; bottom: 0; transform: rotate(180deg); }
+
+.paper::before {
+    left: 0;
+    top: 0;
+}
+
+.paper::after {
+    right: 0;
+    bottom: 0;
+    transform: rotate(180deg);
+}
 
 .inner {
     position: absolute;
@@ -147,8 +188,13 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-lt); outli
     overflow-y: auto;
     scrollbar-width: none;
 }
-.inner::-webkit-scrollbar { display: none; }
-.inner::before {            /* thin inner keyline */
+
+.inner::-webkit-scrollbar {
+    display: none;
+}
+
+.inner::before {
+    /* thin inner keyline */
     content: "";
     position: absolute;
     inset: 1cqw;
@@ -165,13 +211,19 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-lt); outli
     align-items: center;
     justify-content: center;
 }
+
 .paper-back::before {
     content: "";
     position: absolute;
     inset: 3.2cqw;
     border: .3cqw solid rgba(184, 137, 58, .55);
 }
-.mono { font: 400 11cqw 'Great Vibes', cursive; color: var(--gold); opacity: .55; }
+
+.mono {
+    font: 400 11cqw 'Great Vibes', cursive;
+    color: var(--gold);
+    opacity: .55;
+}
 
 /* inside of the front cover */
 .endpaper {
@@ -182,6 +234,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-lt); outli
     align-items: center;
     justify-content: center;
 }
+
 .seal {
     font: 400 11cqw 'Great Vibes', cursive;
     color: var(--gold-lt);
@@ -195,32 +248,108 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-lt); outli
 }
 
 /* ---------- Type ---------- */
-.txt { margin: 0; font-size: var(--fs); }
-.sub { margin: 0; font-size: 3.6cqw; opacity: .85; }
-.kick, .sm {
+.txt {
+    margin: 0;
+    font-size: var(--fs);
+}
+
+.sub {
+    margin: 0;
+    font-size: 3.6cqw;
+    opacity: .85;
+}
+
+.kick,
+.sm {
     font-family: Cinzel, 'Noto Serif Tamil', serif;
     font-size: 3cqw;
     letter-spacing: .12em;
     text-transform: uppercase;
 }
-body.ta .kick, body.ta .sm { text-transform: none; letter-spacing: 0; font-size: 3.6cqw; }
-.om { font-size: 11cqw; line-height: 1; color: var(--gold); }
-.icon { font-size: 12cqw; line-height: 1; margin-bottom: 1.5cqw; }
-.the { font-family: Cinzel, serif; color: var(--maroon); font-size: 4cqw; margin-top: 2cqw; }
+
+body.ta .kick,
+body.ta .sm {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 3.6cqw;
+}
+
+.om {
+    font-size: 11cqw;
+    line-height: 1;
+    color: var(--gold);
+}
+
+.icon {
+    font-size: 12cqw;
+    line-height: 1;
+    margin-bottom: 1.5cqw;
+}
+
+.the {
+    font-family: Cinzel, serif;
+    color: var(--maroon);
+    font-size: 4cqw;
+    margin-top: 2cqw;
+}
+
 h1 {
     margin: 0;
     font: 700 14cqw/1.05 'Playfair Display', serif;
     letter-spacing: .02em;
     color: var(--maroon);
 }
-body.ta h1 { font-family: 'Noto Serif Tamil', serif; font-size: 10.5cqw; line-height: 1.25; }
-.script { font: 400 9cqw/1 'Great Vibes', cursive; color: var(--gold); margin-top: -1cqw; }
-.rule { width: 60%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 2cqw 0; position: relative; flex: none; }
-.rule::after { content: "♥"; position: absolute; left: 50%; top: -2.6cqw; transform: translateX(-50%); font-size: 3.4cqw; color: var(--gold); background: #fffaf0; padding: 0 1.6cqw; }
 
-.names { font: 400 12cqw/1.1 'Great Vibes', cursive; color: var(--maroon); }
-body.ta .names { font-family: 'Noto Serif Tamil', serif; font-weight: 700; font-size: 8cqw; line-height: 1.3; }
-.amp { display: block; font-size: .6em; color: var(--gold); }
+body.ta h1 {
+    font-family: 'Noto Serif Tamil', serif;
+    font-size: 10.5cqw;
+    line-height: 1.25;
+}
+
+.script {
+    font: 400 9cqw/1 'Great Vibes', cursive;
+    color: var(--gold);
+    margin-top: -1cqw;
+}
+
+.rule {
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 2cqw 0;
+    position: relative;
+    flex: none;
+}
+
+.rule::after {
+    content: "♥";
+    position: absolute;
+    left: 50%;
+    top: -2.6cqw;
+    transform: translateX(-50%);
+    font-size: 3.4cqw;
+    color: var(--gold);
+    background: #fffaf0;
+    padding: 0 1.6cqw;
+}
+
+.names {
+    font: 400 12cqw/1.1 'Great Vibes', cursive;
+    color: var(--maroon);
+}
+
+body.ta .names {
+    font-family: 'Noto Serif Tamil', serif;
+    font-weight: 700;
+    font-size: 8cqw;
+    line-height: 1.3;
+}
+
+.amp {
+    display: block;
+    font-size: .6em;
+    color: var(--gold);
+}
 
 .head {
     margin: 0;
@@ -228,10 +357,28 @@ body.ta .names { font-family: 'Noto Serif Tamil', serif; font-weight: 700; font-
     letter-spacing: .12em;
     color: var(--maroon);
 }
-body.ta .head { letter-spacing: 0; font-size: 5.2cqw; font-family: 'Noto Serif Tamil', serif; font-weight: 700; }
-.venue { margin: 1.5cqw 0 0; font-size: var(--fs); }
-.venue b { font-size: 6cqw; color: var(--maroon); line-height: 1.25; }
-body.ta .venue b { font-size: 5cqw; }
+
+body.ta .head {
+    letter-spacing: 0;
+    font-size: 5.2cqw;
+    font-family: 'Noto Serif Tamil', serif;
+    font-weight: 700;
+}
+
+.venue {
+    margin: 1.5cqw 0 0;
+    font-size: var(--fs);
+}
+
+.venue b {
+    font-size: 6cqw;
+    color: var(--maroon);
+    line-height: 1.25;
+}
+
+body.ta .venue b {
+    font-size: 5cqw;
+}
 
 .btn {
     display: inline-block;
@@ -256,25 +403,75 @@ body.ta .venue b { font-size: 5cqw; }
     flex: none;
     box-shadow: 0 1.5cqw 4cqw rgba(110, 20, 35, .25);
 }
-.arch-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 92% 20%; display: block; }
 
-.couple { width: 40cqw; flex: none; position: relative; isolation: isolate; }
-.couple::before { content: ""; position: absolute; inset: 6% -14% 0; background: radial-gradient(ellipse at center, rgba(184, 137, 58, .35), transparent 70%); z-index: -1; }
-.couple img { width: 100%; height: auto; display: block; filter: drop-shadow(0 1.5cqw 2.5cqw rgba(0, 0, 0, .25)); }
+.arch-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 92% 20%;
+    display: block;
+}
+
+.couple {
+    width: 40cqw;
+    flex: none;
+    position: relative;
+    isolation: isolate;
+}
+
+.couple::before {
+    content: "";
+    position: absolute;
+    inset: 6% -14% 0;
+    background: radial-gradient(ellipse at center, rgba(184, 137, 58, .35), transparent 70%);
+    z-index: -1;
+}
+
+.couple img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 1.5cqw 2.5cqw rgba(0, 0, 0, .25));
+}
 
 /* ---------- Date + countdown ---------- */
-.date { display: flex; align-items: center; justify-content: center; gap: 3.4cqw; color: var(--maroon); font-family: Cinzel, serif; }
-.date .sm { margin: 0; }
+.date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.4cqw;
+    color: var(--maroon);
+    font-family: Cinzel, serif;
+}
+
+.date .sm {
+    margin: 0;
+}
+
 .date .big {
     font: 700 15cqw/1 'Playfair Display', serif;
     border-left: .3cqw solid var(--gold);
     border-right: .3cqw solid var(--gold);
     padding: 0 4cqw;
 }
-.date small { display: block; font: 400 3.6cqw Cinzel, serif; letter-spacing: .15em; }
-body.ta .date small { letter-spacing: 0; font-family: 'Noto Serif Tamil', serif; }
 
-#cd { display: flex; justify-content: center; gap: 2.4cqw; }
+.date small {
+    display: block;
+    font: 400 3.6cqw Cinzel, serif;
+    letter-spacing: .15em;
+}
+
+body.ta .date small {
+    letter-spacing: 0;
+    font-family: 'Noto Serif Tamil', serif;
+}
+
+#cd {
+    display: flex;
+    justify-content: center;
+    gap: 2.4cqw;
+}
+
 #cd div {
     min-width: 15cqw;
     padding: 1.6cqw 1cqw;
@@ -284,11 +481,28 @@ body.ta .date small { letter-spacing: 0; font-family: 'Noto Serif Tamil', serif;
     color: var(--maroon);
     font: 700 6cqw/1.1 'Playfair Display', serif;
 }
-#cd span { display: block; font: 400 2.2cqw Cinzel, 'Noto Serif Tamil', serif; letter-spacing: .08em; }
+
+#cd span {
+    display: block;
+    font: 400 2.2cqw Cinzel, 'Noto Serif Tamil', serif;
+    letter-spacing: .08em;
+}
 
 /* ---------- Contact / RSVP ---------- */
-.contact-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.6cqw 2cqw; }
-.num { font-size: 5.4cqw; letter-spacing: .02em; color: var(--maroon); }
+.contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.6cqw 2cqw;
+}
+
+.num {
+    font-size: 5.4cqw;
+    letter-spacing: .02em;
+    color: var(--maroon);
+}
+
 .chip {
     display: inline-block;
     padding: 2.2cqw 3.8cqw;
@@ -301,49 +515,201 @@ body.ta .date small { letter-spacing: 0; font-family: 'Noto Serif Tamil', serif;
     letter-spacing: .05em;
     cursor: pointer;
 }
-.chip.wa { background: #25d366; border-color: #25d366; color: #0b3d1e; }
-.chip.wa::before { content: "💬 "; }
-.chip.wa.big::before { content: ""; }
-.chip.big { padding: 3cqw 5.2cqw; font-size: 3.5cqw; }
-.rsvp { margin-top: 2cqw; padding-top: 3cqw; border-top: 1px solid rgba(184, 137, 58, .55); width: 100%; }
-.rsvp .sm { color: var(--maroon); margin-bottom: 2.4cqw; }
-.rsvp-btns { display: flex; flex-direction: column; align-items: center; gap: 2.4cqw; }
+
+.chip.wa {
+    background: #25d366;
+    border-color: #25d366;
+    color: #0b3d1e;
+}
+
+.chip.wa::before {
+    content: "💬 ";
+}
+
+.chip.wa.big::before {
+    content: "";
+}
+
+.chip.big {
+    padding: 3cqw 5.2cqw;
+    font-size: 3.5cqw;
+}
+
+.rsvp {
+    margin-top: 2cqw;
+    padding-top: 3cqw;
+    border-top: 1px solid rgba(184, 137, 58, .55);
+    width: 100%;
+}
+
+.rsvp .sm {
+    color: var(--maroon);
+    margin-bottom: 2.4cqw;
+}
+
+.rsvp-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4cqw;
+}
 
 /* ---------- Covers ---------- */
-.cover { background: var(--deep); color: var(--cream); }
-.cover .gilt { position: absolute; inset: 3cqw; border: .6cqw double var(--gold-lt); border-radius: 2px 9px 9px 2px; pointer-events: none; z-index: 3; }
-.cover::after {              /* spine shading */
-    content: ""; position: absolute; inset: 0; z-index: 4; pointer-events: none;
+.cover {
+    background: var(--deep);
+    color: var(--cream);
+}
+
+.cover .gilt {
+    position: absolute;
+    inset: 3cqw;
+    border: .6cqw double var(--gold-lt);
+    border-radius: 2px 9px 9px 2px;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.cover::after {
+    /* spine shading */
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
     background: linear-gradient(90deg, rgba(0, 0, 0, .35), rgba(0, 0, 0, 0) 7%);
 }
-.cover:not(.backcover) { background: #fff6e4; }
+
+.cover:not(.backcover) {
+    background: #fff6e4;
+}
+
 .cover .bg {
-    position: absolute; left: 0; right: 0; top: 13cqw; width: 100%; height: calc(100% - 13cqw);
-    object-fit: cover; object-position: 81% 40%; z-index: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 13cqw;
+    width: 100%;
+    height: calc(100% - 13cqw);
+    object-fit: cover;
+    object-position: 81% 40%;
+    z-index: 0;
     -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%);
     mask-image: linear-gradient(180deg, transparent 0, #000 14%);
 }
+
 .cover:not(.backcover)::before {
-    content: ""; position: absolute; inset: 0; z-index: 1;
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 44%, rgba(77, 15, 27, .95) 76%);
 }
-.cv-top { position: absolute; top: 7cqw; left: 0; right: 0; z-index: 2; font: 600 3.6cqw Cinzel, 'Noto Serif Tamil', serif; letter-spacing: .1em; color: var(--maroon); }
-.cv-bottom { position: absolute; left: 6cqw; right: 6cqw; bottom: 9cqw; z-index: 2; }
-.cv-bottom .kick { color: var(--gold-lt); }
-.cv-names { font: 400 13cqw/1.1 'Great Vibes', cursive; color: #fff3d6; margin: 1cqw 0; text-shadow: 0 .4cqw 1.2cqw rgba(0, 0, 0, .5); }
-.cv-names i { color: var(--gold-lt); font-size: .7em; }
-body.ta .cv-names { font-family: 'Noto Serif Tamil', serif; font-weight: 700; font-size: 8.6cqw; line-height: 1.3; }
-.cv-date { font: 600 3.4cqw Cinzel, 'Noto Serif Tamil', serif; letter-spacing: .1em; }
-body.ta .cv-date { letter-spacing: 0; font-size: 3.8cqw; }
-.cv-open { margin-top: 3.4cqw; font: 600 3.2cqw Cinzel, 'Noto Serif Tamil', serif; letter-spacing: .12em; color: var(--gold-lt); animation: nudge 1.8s ease-in-out infinite; }
-@keyframes nudge { 50% { transform: translateX(1.4cqw); opacity: .7; } }
 
-.backcover { background: radial-gradient(circle at 50% 40%, #6b1727, #3a0b15); }
-.bc { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2cqw; padding: 10cqw; }
-.bc-txt { margin: 0; font-size: 4.4cqw; color: var(--cream); }
-body.ta .bc-txt { font-size: 3.7cqw; }
-.bc-name { margin: 0; font: 400 10cqw/1.15 'Great Vibes', cursive; color: var(--gold-lt); }
-body.ta .bc-name { font-family: 'Noto Serif Tamil', serif; font-weight: 700; font-size: 6.4cqw; }
+.cv-top {
+    position: absolute;
+    top: 7cqw;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    font: 600 3.6cqw Cinzel, 'Noto Serif Tamil', serif;
+    letter-spacing: .1em;
+    color: var(--maroon);
+}
+
+.cv-bottom {
+    position: absolute;
+    left: 6cqw;
+    right: 6cqw;
+    bottom: 9cqw;
+    z-index: 2;
+}
+
+.cv-bottom .kick {
+    color: var(--gold-lt);
+}
+
+.cv-names {
+    font: 400 13cqw/1.1 'Great Vibes', cursive;
+    color: #fff3d6;
+    margin: 1cqw 0;
+    text-shadow: 0 .4cqw 1.2cqw rgba(0, 0, 0, .5);
+}
+
+.cv-names i {
+    color: var(--gold-lt);
+    font-size: .7em;
+}
+
+body.ta .cv-names {
+    font-family: 'Noto Serif Tamil', serif;
+    font-weight: 700;
+    font-size: 8.6cqw;
+    line-height: 1.3;
+}
+
+.cv-date {
+    font: 600 3.4cqw Cinzel, 'Noto Serif Tamil', serif;
+    letter-spacing: .1em;
+}
+
+body.ta .cv-date {
+    letter-spacing: 0;
+    font-size: 3.8cqw;
+}
+
+.cv-open {
+    margin-top: 3.4cqw;
+    font: 600 3.2cqw Cinzel, 'Noto Serif Tamil', serif;
+    letter-spacing: .12em;
+    color: var(--gold-lt);
+    animation: nudge 1.8s ease-in-out infinite;
+}
+
+@keyframes nudge {
+    50% {
+        transform: translateX(1.4cqw);
+        opacity: .7;
+    }
+}
+
+.backcover {
+    background: radial-gradient(circle at 50% 40%, #6b1727, #3a0b15);
+}
+
+.bc {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2cqw;
+    padding: 10cqw;
+}
+
+.bc-txt {
+    margin: 0;
+    font-size: 4.4cqw;
+    color: var(--cream);
+}
+
+body.ta .bc-txt {
+    font-size: 3.7cqw;
+}
+
+.bc-name {
+    margin: 0;
+    font: 400 10cqw/1.15 'Great Vibes', cursive;
+    color: var(--gold-lt);
+}
+
+body.ta .bc-name {
+    font-family: 'Noto Serif Tamil', serif;
+    font-weight: 700;
+    font-size: 6.4cqw;
+}
+
 .again {
     margin-top: 5cqw;
     background: transparent;
@@ -357,9 +723,19 @@ body.ta .bc-name { font-family: 'Noto Serif Tamil', serif; font-weight: 700; fon
 }
 
 /* ---------- Controls ---------- */
-.ctrl { width: var(--w); display: flex; align-items: center; justify-content: space-between; gap: 10px; flex: none; }
+.ctrl {
+    width: var(--w);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex: none;
+}
+
 .arrow {
-    width: 44px; height: 44px; flex: none;
+    width: 44px;
+    height: 44px;
+    flex: none;
     border-radius: 50%;
     border: 1px solid var(--gold-lt);
     background: rgba(255, 250, 240, .08);
@@ -368,23 +744,110 @@ body.ta .bc-name { font-family: 'Noto Serif Tamil', serif; font-weight: 700; fon
     padding: 0 0 4px;
     cursor: pointer;
 }
-.arrow:disabled { opacity: .3; cursor: default; }
-.dots { display: flex; gap: 2px; flex-wrap: nowrap; justify-content: center; }
-.dot { width: 20px; height: 28px; background: none; border: 0; padding: 0; cursor: pointer; position: relative; }
-.dot::after { content: ""; position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: rgba(246, 226, 184, .35); transition: all .3s; }
-.dot[aria-current="true"]::after { background: var(--gold-lt); width: 12px; border-radius: 6px; margin-left: -6px; }
 
-.hint { margin: 0; height: 18px; font: 400 12px Cinzel, 'Noto Serif Tamil', serif; letter-spacing: .08em; color: rgba(246, 226, 184, .7); transition: opacity .6s; text-align: center; }
-.hint.gone { opacity: 0; }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: 0; }
+.arrow:disabled {
+    opacity: .3;
+    cursor: default;
+}
+
+.dots {
+    display: flex;
+    gap: 2px;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.dot {
+    width: 20px;
+    height: 28px;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.dot::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    border-radius: 50%;
+    background: rgba(246, 226, 184, .35);
+    transition: all .3s;
+}
+
+.dot[aria-current="true"]::after {
+    background: var(--gold-lt);
+    width: 12px;
+    border-radius: 6px;
+    margin-left: -6px;
+}
+
+.hint {
+    margin: 0;
+    height: 18px;
+    font: 400 12px Cinzel, 'Noto Serif Tamil', serif;
+    letter-spacing: .08em;
+    color: rgba(246, 226, 184, .7);
+    transition: opacity .6s;
+    text-align: center;
+}
+
+.hint.gone {
+    opacity: 0;
+}
+
+.sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    margin: 0;
+}
 
 /* ---------- Petals ---------- */
-.petals { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
-.petals i { position: absolute; top: -20px; width: 10px; height: 14px; background: #d9627a; border-radius: 70% 0 70% 0; opacity: .35; animation: fall linear infinite; }
-@keyframes fall { to { transform: translateY(110vh) rotate(540deg); } }
+.petals {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.petals i {
+    position: absolute;
+    top: -20px;
+    width: 10px;
+    height: 14px;
+    background: #d9627a;
+    border-radius: 70% 0 70% 0;
+    opacity: .35;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(540deg);
+    }
+}
 
 @media (prefers-reduced-motion: reduce) {
-    .petals { display: none; }
-    .leaf, .book-wrap { transition-duration: .01s !important; }
-    .cv-open { animation: none; }
+    .petals {
+        display: none;
+    }
+
+    .leaf,
+    .book-wrap {
+        transition-duration: .01s !important;
+    }
+
+    .cv-open {
+        animation: none;
+    }
 }
